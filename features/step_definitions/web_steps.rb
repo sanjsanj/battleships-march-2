@@ -31,5 +31,5 @@ Given(/^I am on the Start Game page$/) do
 end
 
 Then(/^I should see a board$/) do
-  expect(page).to have_content('water')
+  expect(page).to have_content('Water')
 end
