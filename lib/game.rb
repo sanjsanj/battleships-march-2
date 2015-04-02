@@ -1,9 +1,14 @@
 class Game
 
   attr_reader :player_1, :player_2, :turn
+  attr_accessor :player_1, :player_2
 
-  def initialize player_1, player_2
+  def initialize player_1 = nil, player_2 = nil
     @player_1, @player_2, @turn = player_1, player_2, player_1
+  end
+
+  def add_player player
+    player_1 ? player_2 = player : player_1 = player
   end
 
   def make_move position
@@ -13,7 +18,7 @@ class Game
   end
 
   def opponent
-    turn == player_1 ? player_2 : player_1
+    turn == player_1 ? self.player_2 : self.player_1
   end
 
   def over?

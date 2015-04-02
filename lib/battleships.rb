@@ -1,9 +1,17 @@
 require 'sinatra/base'
+require_relative 'board'
+require_relative 'cell'
+require_relative 'game'
+require_relative 'player'
+require_relative 'ship'
+require_relative 'water'
 
 class BattleShips < Sinatra::Base
   enable :sessions
 
   set :views, Proc.new { File.join(root, "..", "views") }
+
+  GAME = Game.new
 
   get '/' do
     'Hello BattleShips!'
@@ -27,7 +35,12 @@ class BattleShips < Sinatra::Base
   end
 
   get '/start_game' do
-    @name = session['player_1_name']
+    player_1 = Player.new(session['player_1_name'])
+    player_2 = Player.new(session['player_2_name'])
+    player_1_board = Board.new({ size: 9, cell: Cell })
+    player_2_board = Board.new({ size: 9, cell: Cell })
+
+
     erb :start_game
   end
 

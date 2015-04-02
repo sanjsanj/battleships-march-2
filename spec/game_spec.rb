@@ -13,6 +13,11 @@ describe Game do
     expect(game.player_1).to eq player_1
   end
 
+  # it 'can add a player' do
+  #   game = Game.new
+  #   game.add_player
+  # end
+
   it "knows who player 2 is" do
     expect(game.player_2).to eq player_2
   end
