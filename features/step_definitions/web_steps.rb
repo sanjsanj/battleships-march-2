@@ -25,3 +25,11 @@ end
 Then(/^I expect to redirect to Start Game page$/) do
   expect(current_path).to eq('/start_game')
 end
+
+Given(/^I am on the Start Game page$/) do
+  visit '/start_game'
+end
+
+Then(/^I should see a board$/) do
+  expect(page).to have_content('water')
+end
